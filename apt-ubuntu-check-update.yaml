@@ -1,0 +1,6 @@
+---
+- hosts: ubuntu 
+  become: true
+  tasks:
+    - name: check APT for updates
+      apt: name='*' state=latest

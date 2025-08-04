@@ -1,0 +1,8 @@
+---
+- hosts: ubuntu 
+  become: true
+  tasks:
+  - name: Transfer the script
+    copy: src=catmotd.sh dest=/home/ansible mode=0777
+  - name: Execute the script
+    script: /home/ansible/catmotd.sh

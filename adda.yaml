@@ -1,0 +1,9 @@
+---
+- name: Add user ansible with uid 1001
+  hosts: all
+  tasks:
+  - name: Ansible user exists with UID 1001
+    ansible.builtin.user:
+     name: ansible
+     uid: 1001
+     state: present

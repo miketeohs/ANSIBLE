@@ -1,0 +1,6 @@
+---
+- name: To check whether chrony is installed
+  hosts: redhat
+  tasks:
+  - yum: pkg=chrony state=installed
+  - ansible.builtin.systemd: name=chronyd state=stopped

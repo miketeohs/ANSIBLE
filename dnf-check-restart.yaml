@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: check DNF for reboot
+      dnf: name='*' state=latest

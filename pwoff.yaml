@@ -1,0 +1,8 @@
+---
+- name: To shutdown managed hosts
+  hosts: all
+  become: true
+  tasks:
+    - name: Poweroff machine
+      ansible.builtin.command: poweroff
+
