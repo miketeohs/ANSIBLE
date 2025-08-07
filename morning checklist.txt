@@ -131,4 +131,8 @@ Able to git push
 
 21. about 2.55 pm
 
+<<<<<<< HEAD
 22. how about morning checklist?
+=======
+22. another round of test
+>>>>>>> MORNING-FEATURES
