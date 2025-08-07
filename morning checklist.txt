@@ -130,3 +130,4 @@ Able to git push
 22. how about morning checklist?
 22. another round of test
 23. branching
+24. 
