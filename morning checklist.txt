@@ -124,15 +124,9 @@ export ANSIBLE_INVENTORY=/home/mteo/playbooks/inventory
 Able to git push
 
 18.
-
 19.
-
 20.
-
 21. about 2.55 pm
-
-<<<<<<< HEAD
 22. how about morning checklist?
-=======
 22. another round of test
->>>>>>> MORNING-FEATURES
+23. branching
