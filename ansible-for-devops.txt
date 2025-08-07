@@ -1,0 +1,79 @@
+<<Ansible for devops>>
+
+https://github.com/geerlingguy/ansible-for-devops
+github.com/ansible/ansible-for-devops
+
+Example:
+git clone https://gitlab.com/rgdacost/ansible.git
+
+git clone https://gitlab.com/git clone https://gitlab.com/rgdacost/ansible.git
+
+How to create the .git file for git clone?
+
+
+https;//www.ansible.com/blog
+https://www.ansible.com/get-started
+https://github.com/geerlingguy/ansible-for-devops
+http://devopsu.com/newsletters/ansible-weekly-newsletter.html
+
+snowflake serves - servers that are uniquely created & impossible to recreate from scratch becaue they were 
+hand-configured without documentation
+
+<<Install>>
+development tools like gcc, make
+python-pip, pyrhon-devel or python-devel
+on epel rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/\epel-release-6-8.rpm
+yum install epel-release
+
+FOr Deb/Ubuntu, sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible -y 
+if encountered with errors, sudo apt-get install python-software-properties
+sudo pip install ansible or yum install ansible
+
+
+ansible --version
+
+<<Inventory>>
+
+mkdir /etc/ansible
+mkdir /etc/ansible/hosts
+[example]
+www.example.com
+
+<<Running Ad-Hoc Ansible Command>>
+ansible example -m ping -u [username]
+Note: ansible assumes the --ask-pass or -k for passwordless (key-based) login for ssh. Need the sshpass package 
+
+ansible example -a "free -m" -u [username]
+
+nagios, munin or cachti 
+
+<<Vagrant>>
+www.vagrantup.com/downloads.html
+Make sure command line tools are installed
+https://developer.hashicorp.com/vagrant/install
+https://developer.hashicorp.com/vagrant
+available-vagrant-boxes
+https://github.com/hashicorp/vagrant/wiki/Available-Vagrant-Boxes
+https://developer.hashicorp.com/vagrant/docs/boxes
+https://portal.cloud.hashicorp.com/vagrant/discover
+
+instsall the vagrant first from the website above
+create a new folder to keep vagrantfile and provisioning infrastructure
+command a terminal or powrshell and cd to the newly created directory
+vagrant box add geerlingguy/ubuntu2204
+vagrant init geerlingguy/ubuntu2204
+vagrant up
+https://developer.hashicorp.com/vagrant/docs/boxes
+https://www.vagrantcloud.com/generic/boxes/ubuntu2204
+
+vagrant halt 
+vagrant up
+vagrant destroy
+vagrant ssh
+vagrant ssh-config
+vagrant provision
+
+https://github.com/geerlingguy/ansible-for-devops/tree/master/first-ansible-playbook
+
