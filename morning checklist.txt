@@ -121,3 +121,4 @@ export ANSIBLE_INVENTORY=/home/mteo/playbooks/inventory
 16. pod
 
 17. Ansible
+Able to git push
