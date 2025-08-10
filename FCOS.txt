@@ -1,0 +1,81 @@
+	<tr align="left" valign="top"><td><a href="https://www.youtube.com/watch?v=09AVkkMkfqM>前路漫漫亦灿灿 周嘉怡 谢棉 胡家豪靳寒川</a></td></tr>
+
+https://www.bing.com/search?q=core%20fwupd-refresh.service&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=core%20fwupd-refresh.service&sc=0-26&sk=&cvid=D43DD36D8D3B482CBC970B8EC6668D83&ntref=1
+fwupd-refresh.service failed
+/usr/bin/fwupdmgr refresh
+journalctl -xeu fwupd-refresh.service
+https://askubuntu.com/questions/1404691/fwupd-refresh-service-failed
+A service that is masked is disabled and can't be activated by an other unit (timers, targets, services...) that needs it or manually. It's the stronger version of disabling a service.
+fwupd-refresh.timer: ...failed...unit fwupd-refresh is masked.
+To change this:
+sudo systemctl unmask fwupd-refresh
+Then this:
+sudo systemctl daemon-reload && sudo systemctl start fwupd-refresh.service
+systemctl list-units --failed
+If fwupd-refresh is listed as failed then:
+Uncomment #DynamicUser=yes in /lib/systemd/system/fwupd-refresh.service
+
+root@okd4-compute-1:/etc/fwupd# cat fwupd.conf                                                                                                                                                                                                                                                                              [fwupd]
+# use `man 5 fwupd.conf` for documentation
+DisabledPlugins=test;invalid;bios
+
+okd4-bootstrap: 
+/usr/lib/zincati/config.d directory has several files:
+added /usr/lib/zincati/config.d/10-enable-feature.toml:
+[feature]
+enabled = true
+Failed because it is readonly.
+So added /etc/zincati/config.d/10-enable-feature.toml
+
+
+
+Step 1: Verify your download
+Verify your download for security and integrity using the proper checksum and signature file. 
+If there is a good signature from one of the Fedora keys, and the SHA256 checksum matches, then the download is valid.
+Download the checksum file and signature into the same directory as the image you downloaded.
+Step 2: Import Fedora's GPG key(s)
+curl -O https://fedoraproject.org/fedora.gpg
+You can verify the details of the GPG key(s) here.
+Verify the signature file is valid
+gpgv --keyring ./fedora.gpg fedora-coreos-42.20250623.3.1-metal.x86_64.raw.xz.sig fedora-coreos-42.20250623.3.1-metal.x86_64.raw.xz
+Verify the checksum matches
+sha256sum --ignore-missing -c fedora-coreos-42.20250623.3.1-metal.x86_64.raw.xz-CHECKSUM
+If the output states that the file is valid, then it's ready to use!
+
+***Import Fedora's GPG key(s)
+curl -O https://fedoraproject.org/fedora.gpg
+List Fedora's GPG key(s)
+gpg --with-fingerprint --show-keys --keyid-format long fedora.gpg
+You can verify the details of the GPG key(s) below.
+--------------------------------------------------------
+pub   rsa4096/0727707EA15B79CC 2023-01-24 [SCE]
+      Key fingerprint = 115D F9AE F857 853E E844  5D0A 0727 707E A15B 79CC
+uid                            Fedora (40) <fedora-40-primary@fedoraproject.org>
+pub   rsa4096/D0622462E99D6AD1 2023-08-08 [SCE]
+      Key fingerprint = 466C F2D8 B60B C305 7AA9  453E D062 2462 E99D 6AD1
+uid                            Fedora (41) <fedora-41-primary@fedoraproject.org>
+pub   rsa4096/C8AC4916105EF944 2024-02-12 [SCE]
+      Key fingerprint = B0F4 9504 58F6 9E11 50C6  C5ED C8AC 4916 105E F944
+uid                            Fedora (42) <fedora-42-primary@fedoraproject.org>
+pub   rsa4096/829B606631645531 2024-08-10 [SCE]
+      Key fingerprint = C6E7 F081 CF80 E131 4667  6E88 829B 6066 3164 5531
+uid                            Fedora (43) <fedora-43-primary@fedoraproject.org>
+==================================
+
+Step 2: Verify the CHECKSUM file is valid
+for checksum in *-CHECKSUM; do gpgv --keyring ./fedora.gpg "$checksum"; done
+Verify the checksum matches
+sha256sum --ignore-missing -c *-CHECKSUM
+If the output states that the file is valid, then it's ready to use!
+*** Verify with CHECKSUM files
+If your download comes with a CHECKSUM file, follow these easy steps to verify your image for both security and integrity.
+Import Fedora's GPG key(s)
+curl -O https://fedoraproject.org/fedora.gpg
+List Fedora's GPG key(s)
+gpg --with-fingerprint --show-keys --keyid-format long fedora.gpg
+ You can verify the details of the GPG key(s) below.
+Verify the CHECKSUM file is valid
+for checksum in *-CHECKSUM; do gpgv --keyring ./fedora.gpg "$checksum"; done
+Verify the checksum matches
+sha256sum --ignore-missing -c *-CHECKSUM
+If the output states that the file is valid, then it's ready to use!

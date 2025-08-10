@@ -1,0 +1,806 @@
+ansible web01  -bK -m raw -a "cat /etc/rsyslog.conf" -u mteo
+timedatectl
+scp -P 9402 -i .ssh/id_rsa /tmp/sep18.tar.gz mteo@10.11.53.206:/tmp
+scp -P 9402 -i .ssh/id_rsa /tmp/sep18.tar.gz mteo@10.111.53.206:/tmp
+scp -P 9402 -i .ssh/id_rsa mteo@10.111.53.206:/tmp/hcpdriver-cki-3.10.0-862.11.6.el7.x86_64.ko /tmp
+scp -P 9402 -i .ssh/id_rsa mteo@10.66.177.91:/tmp/kernel*.rpm /tmp
+scp -P 9402 -i .ssh/id_rsa /tmp/kernel-devel-3.10.0-862.11.6.el7.x86_64.rpm mteo@10.66.177.125:/tmp
+scp -i .ssh/id_rsa -P 9402 mteo@10.66.177.74:/tmp/EICAR.pdf /tmp
+ls -lrt /lib/modules/r1soft/
+r1soft-setup --get-module
+
+ansible web01  -bK -m raw -a "mailq " -u mteo
+ansible web01  -bK -m raw -a "grep -i JavaMail.root@Backup01 /var/log/maillog" -u mteo
+
+set ignoreeof 
+set -o ignoreeof 
+set -o ignoreeof 
+ansible web01  -bK -m raw -a "mailq;systemctl status -l chronyd" -u mteo
+ansible web01  -bK -m raw -a "mailq;systemctl status -l chronyd" -u mteo
+ansible web01  -bK -m raw -a "mailq;systemctl status -l chronyd" -u mteo
+ansible uatapp01  -bK -m raw -a "systemctl status httpd.service " -u mteo
+ansible web01  -bK -m raw -a "cat /etc/rsyslog.conf" -u mteo
+ansible web01  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible db01  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible app01  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible uatapp01 -m ping -f 5
+cat playbooks/inventory 
+git clone --recursive https://github.com/pro-vagrant/pro-vagrant-all-examples.git
+whereis git
+echo Hello from uatweb01 | mailx -v -r "mteo" -s "Message from web001"  -S smtp="mail.psaglobalconnect.com:25"  -S ssl-verify=ignore attteom1@globalpsa.com
+echo Hello from uatweb01 | mailx -v -r "mteo" -s "Message from web001"  -S smtp="10.66.177.115:25"  -S ssl-verify=ignore attteom1@globalpsa.com
+echo Hello from uatweb01 | mailx -v -r "mteo" -s "Message from web001" attteom1@globalpsa.com
+echo Hello from uatweb01 | mailx -v -r "mteo" -s "Message from web001" attteom1@globalpsa.com
+echo Hello from uatweb01 | mailx -v -r "mteo" -s "Message from web001" mteo@psaglobalconnect.com
+echo Hello from uatweb01 | mailx -v -r "mteo" -s "Message from web001"  -S smtp="10.66.177.115:25"  -S ssl-verify=ignore attteom1@globalpsa.com
+ansible uatapp01 -m ping -f 5
+ansible uatapp001 -m ping -f 5
+ansible app01  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible web01,app01,db01  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible app01  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible production  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible production  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible production -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible localhost -m ping -u mteo
+cd playbooks/
+ssh mteo@localhost -p 9402
+ansible localhost -m ping 
+vi playbooks/inventory 
+ansible localhost -m ping 
+env
+man ansible
+ansible /?
+exit
+ls /usr/share/doc/ | grep ansible
+ls -lrt
+sudo -i
+ansible --version
+ansible -h
+ansible -h | grep -i module
+ansible -a
+ansible -m
+ansible -M
+ansible --version
+history | grep ansible
+ansible-doc
+ansible-doc -all
+ansible-doc -a
+ansible-doc -l
+ansible-doc -a
+ansible-doc /?
+ansible-doc -module
+ansible-doc -M list
+ansible-doc -F
+exit
+sudo -i
+ls -lrt
+cd playbooks/
+ls -lrt
+vi inventory 
+cd
+cd playbooks/
+grep backup inventory 
+ssh mteo@10.111.53.206 -p 9402 -i /home/mteo/.ssh/id_rsa
+cd 
+cd playbooks/
+ls -lrt
+vi inventory 
+history | grep ansible | grep chage
+ansible uat  -bK -m raw -a "chage -l root " -u mteo
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+cd ..
+ls -lrt
+history
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+chage -l mteo
+ssh -p 9402 mteo@app01 -i /home/mteo/.ssh/id_rsa
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+ansible uat  -bK -m raw -a "chage -l root " -u mteo
+sudo -i
+ls -lrt
+cd .ssh
+ls -lrt
+cat authorized_keys 
+cat id_rsa
+ip a
+ls
+exit
+history
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+history
+ ansible uat  -bK -m raw -a "chage -l root " -u mteo
+ ansible uat  -bK -m raw -a "chage -l mteo " -u mteo
+ansible production  -bK -m raw -a "chage -l mteo " -u mteo
+history
+ansible all -m ping
+ansible all -m chage -l mteo
+ansible all -m "chage -l mteo"
+ansible all -m raw "chage -l mteo"
+ansible all  "chage -l mteo"
+history
+ansible all -bK -m raw -a "chage -l mteo" -u mteo
+ansible-doc 
+ansible-doc -l
+ls -lrt
+ansible-doc -l | grep -i chage
+ansible-doc -l | grep -i pass
+ansible-doc -l | grep -i vmware
+ping 10.66.177.102
+cd playbooks/
+ls
+vi inventory 
+cd
+history
+ansible
+ansible --list-hosts
+ansible --list-hosts 
+ansible
+ansible-doc -F
+ansible -l
+ansible-doc -l
+ansible
+ansible-doc
+ls -lrt /etc/localtime
+vi localtime.yaml
+mv localtime.yaml  timezone-redhat.yml
+cat timezone-redhat.yml 
+ansible playbook push timezone-redhat.yml 
+mv timezone-redhat.yml playbooks/
+ansible playbook push timezone-redhat.yml 
+cd playbooks/
+ls -lrt
+mv timezone-redhat.yml timezone-redhat.yaml 
+cd ..
+ansible playbook push timezone-redhat.yaml 
+vi playbooks/timezone-redhat.yaml 
+pwd
+cd playbooks/
+ls -lrt
+wget https://github.com/selivan/ansible-set-user-password-expire/blob/master/passwords-set-expire.yml
+ls -lrt
+mv timezone-redhat.yaml timezone-redhat.yml
+ls -lrt
+ansible playbook push passwords-set-expire.yml 
+cd ..
+ansible playbook
+ansible playbook push
+cd playbooks/
+ls
+cat passwords-set-expire.yml 
+ls -lrt
+vi pw_expiry.yml
+ls -lrt
+ansible playbook push pw_expiry.yml 
+ansible-playbook push pw_expiry.yml 
+cd 
+ansible-playbook push pw_expiry.yml 
+ansible-playbook  pw_expiry.yml 
+cd playbooks/
+ansible-playbook  pw_expiry.yml 
+ls -lrt
+vi pw_expiry.yml 
+ansible-playbook  pw_expiry.yml mteo
+id
+ansible-playbook  pw_expiry.yml mteo
+cat pw_expiry.yml 
+grep mteo /etc/passwd
+ansible-playbook  pw_expiry.yml mteo
+history
+ ansible-playbook pw_expiry -u mteo
+ ansible-playbook pw_expiry.yml -u mteo
+ ansible-playbook pw_expiry.yml -bK -u mteo
+ ansible-playbook pw_expiry.yml mteo -bK -u mteo
+ ansible-playbook pw_expiry.yml  -bK -u mteo
+cat /etc/passwd
+chage -l sophosav
+sudo -i 
+ls -lrt
+cat pw_expiry.yml 
+awk -F':' '{ system(\"echo \" $1 \" && chage -l \" $1)  }' /etc/passwd
+cut -f 1 -d: /etc/passwd | sudo xargs -n 1 -I {} bash -c " echo {} ; chage -l {}"
+awk -F':' '{ system(\"echo \" $1 \" && chage -l \" $1)  }' /etc/passwd
+awk -F':' '{ system("echo " $1 " && chage -l " $1)  }' /etc/passwd
+sudo -i
+vi pw_expiry.yml 
+ ansible-playbook pw_expiry.yml  -bK -u mteo
+vi mysql_status.yml
+ls -lrt
+ansible-playbook backup01 mysql_status.yml
+grep backup inventory 
+ansible-playbook backup01 mysql_status.yml
+cd ..
+ansible-playbook backup01 mysql_status.yml
+cd playbooks/
+ls -lrt
+history
+ansible backup01  -bK -m raw -a "chage -l root " -u mteo
+ansible-playbook backup01 mysql_status.yml -u mteo
+vi mysql_status.yml 
+history | grep ansible-playboook
+history | grep playboook
+history | grep playbook
+cat pw_expiry.yml 
+vi mysql_status.yml 
+ansible-playbook mysql_status.yml -u mteo
+vi +3 mysql_status.yml 
+cat pw_expiry.yml 
+cat mysql_status.yml 
+vi mysql_status.yml 
+ansible-playbook mysql_status.yml -u mteo
+vi mysql_status.yml 
+ansible-playbook mysql_status.yml -u mteo
+ansible-playbook localhost mysql_status.yml -u mteo
+vi mysql_status.yml 
+ansible-playbook localhost mysql_status.yml -u mteo
+vi mysql_status.yml 
+vi pw_expiry.yml 
+ansible-playbook pw_expiry.yml 
+ansible-playbook pw_expiry.yml -u mteo
+ansible-playbook pw_expiry.yml -bK -u mteo
+ansible-playbook pw_expiry.yml mteo -bK -u mteo
+ansible-playbook pw_expiry.yml -bK -u mteo
+vi pw_expiry.yml 
+passwd
+sudo -i
+exit
+sudo -i
+chage -l mteo
+sudo -i
+cd /etc/ssl
+ls
+cd certs/
+ls
+sudo -i
+cat /etc/shadow
+sudo -i
+history | grep chage
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+ansible production  -bK -m raw -a "chage -l mteo " -u mteo
+ansible uat  -bK -m raw -a "chage -l mteo " -u mteo
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+pwd
+ls -lrt
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+set
+vi .bash_profile
+ls -lrt
+cat .bash_profile 
+cat /etc/ansible/ansible.cfg 
+sudo -i
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+history
+ansible -i /dev/null localhost -m ping
+ansible production  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible production  -bK -m raw -a "chronyc sources" -u mteo
+sudo -i
+history
+ansible production  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+ansible-playbook 
+ls
+cd .pla
+cd playbooks/
+ls
+ls -lrt
+cat mysql_status.yml 
+ansible -bK -m raw -a "systemctl status -l chronyd" -u mteo production
+ansible production  -bK -m raw -a "systemctl status -l chronyd" -u mteo
+man ansible
+ansible
+sudo -i
+exit
+sudo -i
+history | grep ansible
+scp -P 9402 -i /home/mteo/id_rsa /tmp/jan19patch.tar.gz mteo@10.66.177.125:/tmp/
+sudo -i
+history
+sudo -i
+uname -sr
+ps -ef |grep http
+ls -lrt /tmp
+cd
+pscp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.66.177.115:/tmp
+scp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.66.177.115:/tmp
+pwd
+ls -lrt
+sudo -i
+scp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.66.177.115:/tmp
+scp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.66.177.74:/tmp
+sudo -i
+scp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.66.177.88:/tmp
+sudo -i
+history | grep scp
+scp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@110.111.53.206:/tmp
+scp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.111.53.206:/tmp
+sudo -i
+history 
+scp -i .ssh/id_rsa -P 9402 mteo@10.111.53.206:/tmp/module* /tmp
+sudo -i
+scp -i .ssh/id_rsa -P 9402 /tmp/module.tar.gz mteo@10.66.177.91:/tmp
+ls -lrt /tmp
+sudo -i
+scp -i .ssh/id_rsa -P 9402 /tmp/module.tar.gz mteo@10.66.177.91:/tmp
+sudo -i
+pwd
+scp -i .ssh/id_rsa -P 9402 /tmp/module.tar.gz mteo@10.66.177.125:/tmp
+sudo -i
+scp -i .ssh/id_rsa -P 9402 /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko mteo@10.66.177.125:/tmp
+ls -lrt
+sudo -i
+cd playbooks/
+ls
+vi inventory 
+cd ..
+cd playbooks/
+ls 
+ls -lrt
+cat timezone-redhat.yml
+ls -lrt /etc/localtime
+ls /usr/share/zoneinfo/
+cat timezone-redhat.yml
+ls -lrt
+vi timezone-redhat.yml 
+cp timezone-redhat.yml timezone-Singapore.yml
+vi timezone-Singapore.yml 
+ansible-playbook timezone-Singapore.yml --list-hosts
+history | grep ansible
+cat timezone-Singapore.yml 
+vi timezone-Singapore.yml 
+ansible-playbook timezone-Singapore.yml --list-hosts
+grep file timezone-Singapore.yml 
+vi timezone-Singapore.yml 
+ls -lrt *.yml
+cat mysql_status.yml 
+cat inventory 
+vi inventory 
+ansible-playbook mysql_status.yml --list-hosts
+cat inventory 
+ansible-playbook mysql_status.yml --list-hosts
+ansible-playbook mysql_status.yml -f 10
+cd
+ansible-playbook mysql_status.yml -f 10
+ansible-playbook playbook/mysql_status.yml -f 10
+ls -lrt playbooks/
+ansible-playbook playbooks/mysql_status.yml -f 10
+ansible-playbook playbooks/mysql_servicee.yml -f 10
+ansible-playbook playbooks/mysql_service.yml -f 10
+ansible-playbook playbooks/mysql_service.yml --syntax-check
+ansible-playbook playbooks/apache_service.yml --syntax-check
+:q
+ansible-playbook playbooks/apache_service.yml --syntax-check
+ansible-playbook playbooks/httpd_service.yml --syntax-check
+ansible-playbook playbooks/httpd_service.yml -f 10
+ansible-playbook playbooks/timezone-Singapore.yml --syntax-check
+ansible-doc -F
+q
+history | grep ansible
+ansible-playbook -m timezone playbooks/timezone-Singapore.yml --syntax-check
+ansible-playbook playbooks/httpd_service.yml -f 10
+ls
+cat playbooks/mysql_service.yml 
+history
+exit
+cd playbooks/
+ls 
+cat mysql_status.yml 
+vi mysql_status.yml 
+cat mysql_status.yml 
+vi mysql_status.yml 
+cat mysql_status.yml 
+vi mysql_status.yml 
+vi mysql_service.yml
+ls -lrt
+cat mysql_status.yml 
+rm -rf mysql_status.yml 
+cp mysql_service.yml apache_service.yml
+vi apache_service.yml 
+vi inventory 
+vi apache_service.yml 
+vi inventory 
+mv apache_service.yml httpd_service.yml
+vi httpd_service.yml 
+ls -lrt 
+vi timezone-Singapore.yml 
+ls -lrt timezone*
+vi timezone-Singapore.yml 
+vi inventory 
+vi timezone-Singapore.yml 
+ls -lrt
+cat httpd_service.yml
+vi httpd_service.yml
+exit
+history | grep playbook
+cd /tmp
+wget https://webmail.psa.com.sg/owa/redir.aspx?C=4bFxiDJ_xUOwuuPUEnAmtJBitVXzgNYIVodedqayH61ARg4TLRN_2I2bOJfKQoWZuekwFDOm-HI.&URL=https%3a%2f%2fglobalpsa-my.sharepoint.com%2f%3au%3a%2fp%2fseanchen%2fEXBkvgYhWkNBtkpwIE5b-IwBuB8gj9o0bc2FXImAztiLtA%3fe%3dgqdTYk
+ls -lrt
+mv redir.aspx?C=4bFxiDJ_xUOwuuPUEnAmtJBitVXzgNYIVodedqayH61ARg4TLRN_2I2bOJfKQoWZuekwFDOm-HI. new.170119.ipa
+ls -lrt
+history | grep scp
+scp -i /home/mteo/.ssh/id_rsa -P 9402 new.170119.ipa mteo@10.66.177.74:/tmp
+rm -rf new.170119.ipa 
+ls -lrt
+exit
+pwd
+cd .ssh
+ls -lrt
+mkdir mk
+history
+history | grep ansible-playbook
+ansible-playbook playbooks/httpd_service.yml -f 1
+cat playbooks/httpd_service.yml 
+ls -lrt
+exit
+ip ad
+cd
+cd .ssh
+ls -lrt
+cd
+cd playbooks/
+cat inventory 
+ls
+ls -lrt httpd_service.yml 
+cat timezone-
+cat timezone-Singapore.yml 
+cat timezone-redhat.yml
+cd playbooks/
+ls
+ca inventory 
+cat inventory 
+cat /etc/passwd
+whereis ansible-playbook
+cd
+cd playbooks/
+ls -lrt *.ym
+ls -lrt *.yml
+vi simple_playbook.yml
+cp simple_playbook.yml test_group.yml
+vi test_group.yml 
+cd
+history | grep playbook
+ansible-playbook playbooks/test_group.yml -f 1
+history | grep ansible-playbook
+ansible-playbook
+history | grep ansible
+ansible-playbook -bK -u mteo playbooks/httpd_service.yml -f 1
+cat /etc/passwd
+grep devops /etc/passwd
+grep devops /etc/group
+cat playbooks/test_group.
+cat playbooks/test_group.yml 
+grep devops /etc/passwd
+grep 2001 /etc/passwd
+grep devops /etc/group
+cd ansible
+ls
+vi in
+ls 
+pwd
+cd ..
+cd playbooks/
+ls
+cat inventory 
+vi test_group.
+ls -lrt test*
+vi test_group.yml
+cd ..
+ansible-playbook -bK -u mteo playbooks/httpd_service.yml -f 1
+vi playbooks/test_group.yml 
+ansible-playbook -bK -u mteo playbooks/httpd_service.yml -i playbooks/inventory 
+vi playbooks/inventory 
+history | grep ansible
+ansible-playbook -bK -u mteo playbooks/test-group -i playbooks/inventory 
+ls playbooks/test*
+ansible-playbook -bK -u mteo playbooks/test_group.yml -i playbooks/inventory 
+cat /etc/group
+cat /etc/passwd
+sudo userdel -f devops
+cat /etc/passwd
+cat /etc/group
+cd
+cat playbooks/test_group.yml 
+ls -lrt playbooks/
+ls -lrt playbooks/test_group.retry 
+cat  playbooks/test_group.retry 
+rm -rf playbooks/test_group.retry 
+cat playbooks/test_group.yml 
+sudo -i
+history | grep scp
+sudo -i
+history | grep scp
+history | grep scp | grep 88
+scp -i .ssh/id_rsa -P 9402 /tmp/serverbackup*.rpm mteo@10.66.177.88:/tmp
+exit
+history | grep scp
+scp -i .ssh/id_rsa -P 9402 /tmp/serverbackup*.rpm  mteo@10.66.177.115:/tmp
+sudo -i
+ls -lrt
+history | grep scp
+scp -i .ssh/id_rsa -P 9402 mteo@10.66.177.74:/tmp/hcpdriver* /tmp
+ls -lrt /tmp
+scp -i .ssh/id_rsa -P 9402 /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko mteo@10.66.177.88:/tmp
+rm -rf /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko 
+ls -lrt
+ls -lrt /tmp
+rm -rf serverbackup*
+sudo -i
+history | grep scp
+scp -i .ssh/id_rsa -P 9402 /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko mteo@10.66.177.115:/tmp
+rm -rf /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko 
+ls -lrt
+exit
+cd playbooks/
+ls
+ls -lrt
+cat test_group.yml
+cp test_group.yml group_exists.yml
+vi group_exists.yml 
+cd ..
+history | grep ansible_playbook
+history | grep playbook
+ansible-playbook -bK -u mteo playbooks/group_exists.yml -i playbooks/inventory
+cat /etc/group
+ls -lrt
+vi playbooks/group_exists.yml 
+ansible-playbook -bK -u mteo playbooks/group_exists.yml -i playbooks/inventory
+sudo -i
+cat playbooks/group_exists.yml 
+grep devops /etc/group
+man ansible_playbooks
+man ansible-playbook
+ansible-playbook
+cd playbooks/
+ls
+grep ansible_ssh_user *.yml
+cat pw_expiry.yml
+cd ..
+ansible-playbook -bK -u mteo playbooks/pw_expiry.yml -i playbooks/inventory
+chage -l mteo
+cd playbooks/
+vi pw_expiry.yml 
+cd
+ansible-playbook -bK -u mteo playbooks/pw_expiry.yml -i playbooks/inventory
+cd playbooks/
+vi pw_expiry.yml 
+cd 
+ansible-playbook -bK -u mteo playbooks/pw_expiry.yml -i playbooks/inventory
+chage -l mteo
+exit
+cd /tmp
+ls -lrt
+history | grep scp
+scp -i .ssh/id_rsa -P 9402 mteo@10.66.177.88:/tmp/957.tar.gz .
+ls -lrt
+scp -i .ssh/id_rsa -P 9402 /tmp/957.tar.gz mteo@10.66.177.115:/tmp
+ls -lrt
+rm -rf 957.tar.gz 
+ls -lrt
+exit
+sudo -i
+sudo -i
+chage -l mteo
+exit
+sudo -i
+pwd
+ls -lrt
+chage -l mteo
+exit
+sudo -i
+ls -lrt /etc/sudo*.conf
+sudo -i
+exit
+chage -l root
+sudo -i
+chage -l mteo
+sudo -i
+man -k agent
+ssh-agent
+sudo -i
+cat .bashrc
+set
+cat /home/mteo/playbooks/inventory
+ls -lrt *.cfg
+ls -lrt
+cat .bashrc
+ls -lrt .ansible*
+cd .ansible/
+ls
+cd ..
+ls -la
+cd ansible
+ls 
+ls -lrt
+ls /etc/ansible
+sudo -i
+pwd
+cd group_vars
+ls
+cd ..
+ls -lrt
+find . -name "*group*"
+find . -name "*group_vars*"
+ls -lrt
+exit
+sudo -i
+ps -ef | grep sshd
+pwd
+chage -l mteo
+history | grep chage
+ansible uat  -bK -m raw -a "chage -l mteo " -u mteo
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+exit
+sudo -i
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+ansible uat  -bK -m raw -a "chage -l mteo " -u mteo
+man remsh
+man -k sh
+id
+scp -i .ssh/id_rsa -p 9402 mteo@10.66.177.91:/tmp/id_rsa /tmp
+scp -i .ssh/id_rsa -P 9402 mteo@10.66.177.91:/tmp/id_rsa /tmp
+ls -lrt /tmp/
+ssh -i /tmp/id_rsa -P 9402 fish_count@10.66.177.91 ip add
+ssh -i /tmp/id_rsa -p 9402 fish_count@10.66.177.91 ip add
+rm -rf /tmp/id_rsa 
+ls -lrt
+sudo -i
+history | grep ansible
+sudo -i
+exit
+ls -lrt
+cd .ssh
+ls -lrt
+ls mk
+ls -lrt
+cd mk
+ls 
+cd ..
+rmdir mk
+ls -lrt
+vi config
+cat config 
+ssh uatweb01
+ls -lrt
+cat config
+grep uatweb01 /etc/hosts
+ssh uatapp01
+cat config
+vi config
+ssh backup01
+p@sswrd123
+vi config
+grep -i backup /etc/hosts
+grep -i web /etc/hosts
+vi config
+ssh web01
+vi config
+ssh web01
+vi config
+ssh db01
+ssh app01
+exit
+cat .ssh/config
+nc backup01 9402
+grep backup /etc/hosts
+nc 10.111.53.206 9402
+man nc
+cat /etc/passwd
+sudo -i
+timedatectl 
+clear
+exit
+chage -l mteo
+exit
+ls -lrt /etc/shadow
+exit
+history | grep ansible
+ ansible-playbook -bK -u mteo playbooks/pw_expiry.yml -i playbooks/inventory
+sudo chage -l root
+sudo -i
+hostname
+ls -lrt
+cd /tmp
+ls -lrt
+ip a
+cd /tmp
+ls -lrt
+ip a
+ls -lrt
+cd .ssh
+ls -lrt
+vi authorized_keys 
+ls -lrt
+cat authorized_keys 
+exit
+exit
+sudo -i
+exit
+cd /tmp
+ls -lrt
+cat apache2-modules.txt 
+sudo -i
+exit
+ip a
+cd /tmp
+ls -lrt
+cat azure-db01-root-history.txt 
+man history
+cat azure-db01-root-history.txt 
+rm -rf azure-db01-root-history.txt
+ls -lrt
+sudo -i
+exit
+ip a
+cd /tmp
+ls -lrt
+ip a
+exit
+ip a
+cd /tmp
+ls -lrt
+mv 50-server.cnf db01-50-server.cnf
+ls -lrt
+mv 50-server.cnf uatdb01-50-server.cn
+mv 50-server.cnf uatdb01-50-server.cnf
+ls -lrt
+mv uatdb01-50-server.cn uatdb01-50-server.cnf
+ls -lrt
+diff db01-50-server.cnf uatdb01-50-server.cnf 
+diff db01-50-server.cnf uatdb01-50-server.cnf  | less
+mv /tmp/install.txt .
+ls -lrt
+cat install.txt
+cat /tmp/uatweb01-apache2-mod-enabled.txt 
+ls -lrt
+cat install.txt 
+ip add
+ls -lrt /tmp
+tar tvf /tmp/SLcertificates.tar 
+ip add
+exit
+scp -P 9402 mteo@10.66.177.74:/tmp/keystore.jks .
+ls -lrt
+mkdir app01
+mv keystore.jks app01/
+ls 
+ls -lrt
+cd app01/
+ls
+cp keystore.jks /tmp
+ip a
+ls -lrt
+cd
+exit
+scp -P 9402 mteo@
+scp -P 9402 mteo@10.66.177.115:/tmp/SL*.tar .
+ls -lrt
+cd app01/
+ls
+ls -lrt
+exit
+scp -P 9402 mteo@10.66.177.74:/tmp/app01-certs.tar /tmp
+rm -rf mysql-connector-java-8.0.12.jar 
+cd .ssh
+cat authorized_keys 
+cat authorized_keys 
+ls -lrt
+cat id_rsa.pub 
+cd /tmp
+ls
+ls -lrt
+history | grep scp
+scp -P 9402 mteo@10.111.53.206:/tmp/jun19patching.tar.gz .
+scp -P 9402 mteo@10.111.53.206:/tmp/jun19patching.tar.gz .
+df
+df .
+sudo -i
+ls -lrt /tmp
+history | grep scp
+scp -P 9402 jun19patching.tar.gz mteo@10.66.177.91:/tmp
+history
+scp -P 9402 jun19patching.tar.gz mteo@10.66.177.125:/tmp
+
+tar tvf SL-http-conf.tar 
+cat ansible_hosts 
+rm -rf SL-http-conf.tar 
+ls -lrt
+whereis yumdownloader
+rm -rf yum-utils-1.1.31-46.el7_5.noarch.rpm 
+
