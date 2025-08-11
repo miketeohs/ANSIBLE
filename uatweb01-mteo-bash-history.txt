@@ -1,5 +1,5 @@
 ansible web01  -bK -m raw -a "cat /etc/rsyslog.conf" -u mteo
-timedatectl
+ 
 scp -P 9402 -i .ssh/id_rsa /tmp/sep18.tar.gz mteo@10.11.53.206:/tmp
 scp -P 9402 -i .ssh/id_rsa /tmp/sep18.tar.gz mteo@10.111.53.206:/tmp
 scp -P 9402 -i .ssh/id_rsa mteo@10.111.53.206:/tmp/hcpdriver-cki-3.10.0-862.11.6.el7.x86_64.ko /tmp
@@ -45,7 +45,7 @@ ansible localhost -m ping -u mteo
 cd playbooks/
 
 
-ansible -h
+
 ansible -h | grep -i module
 ansible -a
 ansible -m
