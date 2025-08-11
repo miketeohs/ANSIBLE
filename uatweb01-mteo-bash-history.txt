@@ -6,7 +6,7 @@ scp -P 9402 -i .ssh/id_rsa mteo@10.111.53.206:/tmp/hcpdriver-cki-3.10.0-862.11.6
 scp -P 9402 -i .ssh/id_rsa mteo@10.66.177.91:/tmp/kernel*.rpm /tmp
 scp -P 9402 -i .ssh/id_rsa /tmp/kernel-devel-3.10.0-862.11.6.el7.x86_64.rpm mteo@10.66.177.125:/tmp
 scp -i .ssh/id_rsa -P 9402 mteo@10.66.177.74:/tmp/EICAR.pdf /tmp
-ls -lrt /lib/modules/r1soft/
+/lib/modules/r1soft/
 r1soft-setup --get-module
 
 ansible web01  -bK -m raw -a "mailq " -u mteo
@@ -43,25 +43,14 @@ ansible production  -bK -m raw -a "systemctl status -l chronyd" -u mteo
 ansible production -bK -m raw -a "systemctl status -l chronyd" -u mteo
 ansible localhost -m ping -u mteo
 cd playbooks/
-ssh mteo@localhost -p 9402
-ansible localhost -m ping 
-vi playbooks/inventory 
-ansible localhost -m ping 
-env
-man ansible
-ansible /?
-exit
-ls /usr/share/doc/ | grep ansible
-ls -lrt
-sudo -i
-ansible --version
+
+
 ansible -h
 ansible -h | grep -i module
 ansible -a
 ansible -m
 ansible -M
-ansible --version
-history | grep ansible
+
 ansible-doc
 ansible-doc -all
 ansible-doc -a
@@ -71,43 +60,22 @@ ansible-doc /?
 ansible-doc -module
 ansible-doc -M list
 ansible-doc -F
-exit
-sudo -i
-ls -lrt
-cd playbooks/
-ls -lrt
-vi inventory 
-cd
-cd playbooks/
+
 grep backup inventory 
-ssh mteo@10.111.53.206 -p 9402 -i /home/mteo/.ssh/id_rsa
-cd 
-cd playbooks/
-ls -lrt
-vi inventory 
+
+
 history | grep ansible | grep chage
 ansible uat  -bK -m raw -a "chage -l root " -u mteo
 ansible production  -bK -m raw -a "chage -l root " -u mteo
-cd ..
-ls -lrt
-history
+
 ansible production  -bK -m raw -a "chage -l root " -u mteo
 chage -l mteo
 ssh -p 9402 mteo@app01 -i /home/mteo/.ssh/id_rsa
 ansible production  -bK -m raw -a "chage -l root " -u mteo
 ansible uat  -bK -m raw -a "chage -l root " -u mteo
 sudo -i
-ls -lrt
-cd .ssh
-ls -lrt
-cat authorized_keys 
-cat id_rsa
-ip a
-ls
-exit
-history
+
 ansible production  -bK -m raw -a "chage -l root " -u mteo
-history
  ansible uat  -bK -m raw -a "chage -l root " -u mteo
  ansible uat  -bK -m raw -a "chage -l mteo " -u mteo
 ansible production  -bK -m raw -a "chage -l mteo " -u mteo
@@ -140,7 +108,7 @@ ansible -l
 ansible-doc -l
 ansible
 ansible-doc
-ls -lrt /etc/localtime
+/etc/localtime
 vi localtime.yaml
 mv localtime.yaml  timezone-redhat.yml
 cat timezone-redhat.yml 
@@ -262,11 +230,7 @@ pwd
 ls -lrt
 ansible production  -bK -m raw -a "chage -l root " -u mteo
 set
-vi .bash_profile
-ls -lrt
-cat .bash_profile 
-cat /etc/ansible/ansible.cfg 
-sudo -i
+
 ansible production  -bK -m raw -a "chage -l root " -u mteo
 history
 ansible -i /dev/null localhost -m ping
@@ -296,7 +260,7 @@ history
 sudo -i
 uname -sr
 ps -ef |grep http
-ls -lrt /tmp
+/tmp
 cd
 pscp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.66.177.115:/tmp
 scp -i .ssh/id_rsa -P 9402 /tmp/jan19patch.tar.gz mteo@10.66.177.115:/tmp
@@ -316,7 +280,7 @@ history
 scp -i .ssh/id_rsa -P 9402 mteo@10.111.53.206:/tmp/module* /tmp
 sudo -i
 scp -i .ssh/id_rsa -P 9402 /tmp/module.tar.gz mteo@10.66.177.91:/tmp
-ls -lrt /tmp
+/tmp
 sudo -i
 scp -i .ssh/id_rsa -P 9402 /tmp/module.tar.gz mteo@10.66.177.91:/tmp
 sudo -i
@@ -324,20 +288,12 @@ pwd
 scp -i .ssh/id_rsa -P 9402 /tmp/module.tar.gz mteo@10.66.177.125:/tmp
 sudo -i
 scp -i .ssh/id_rsa -P 9402 /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko mteo@10.66.177.125:/tmp
-ls -lrt
-sudo -i
-cd playbooks/
-ls
-vi inventory 
-cd ..
-cd playbooks/
-ls 
-ls -lrt
+
 cat timezone-redhat.yml
-ls -lrt /etc/localtime
+/etc/localtime
 ls /usr/share/zoneinfo/
 cat timezone-redhat.yml
-ls -lrt
+
 vi timezone-redhat.yml 
 cp timezone-redhat.yml timezone-Singapore.yml
 vi timezone-Singapore.yml 
@@ -348,7 +304,7 @@ vi timezone-Singapore.yml
 ansible-playbook timezone-Singapore.yml --list-hosts
 grep file timezone-Singapore.yml 
 vi timezone-Singapore.yml 
-ls -lrt *.yml
+*.yml
 cat mysql_status.yml 
 cat inventory 
 vi inventory 
@@ -359,7 +315,7 @@ ansible-playbook mysql_status.yml -f 10
 cd
 ansible-playbook mysql_status.yml -f 10
 ansible-playbook playbook/mysql_status.yml -f 10
-ls -lrt playbooks/
+playbooks/
 ansible-playbook playbooks/mysql_status.yml -f 10
 ansible-playbook playbooks/mysql_servicee.yml -f 10
 ansible-playbook playbooks/mysql_service.yml -f 10
@@ -398,9 +354,9 @@ vi apache_service.yml
 vi inventory 
 mv apache_service.yml httpd_service.yml
 vi httpd_service.yml 
-ls -lrt 
+
 vi timezone-Singapore.yml 
-ls -lrt timezone*
+timezone*
 vi timezone-Singapore.yml 
 vi inventory 
 vi timezone-Singapore.yml 
@@ -437,7 +393,7 @@ cd
 cd playbooks/
 cat inventory 
 ls
-ls -lrt httpd_service.yml 
+httpd_service.yml 
 cat timezone-
 cat timezone-Singapore.yml 
 cat timezone-redhat.yml
@@ -449,8 +405,8 @@ cat /etc/passwd
 whereis ansible-playbook
 cd
 cd playbooks/
-ls -lrt *.ym
-ls -lrt *.yml
+*.ym
+*.yml
 vi simple_playbook.yml
 cp simple_playbook.yml test_group.yml
 vi test_group.yml 
@@ -479,7 +435,7 @@ cd playbooks/
 ls
 cat inventory 
 vi test_group.
-ls -lrt test*
+test*
 vi test_group.yml
 cd ..
 ansible-playbook -bK -u mteo playbooks/httpd_service.yml -f 1
@@ -497,8 +453,8 @@ cat /etc/passwd
 cat /etc/group
 cd
 cat playbooks/test_group.yml 
-ls -lrt playbooks/
-ls -lrt playbooks/test_group.retry 
+playbooks/
+playbooks/test_group.retry 
 cat  playbooks/test_group.retry 
 rm -rf playbooks/test_group.retry 
 cat playbooks/test_group.yml 
@@ -515,11 +471,11 @@ sudo -i
 ls -lrt
 history | grep scp
 scp -i .ssh/id_rsa -P 9402 mteo@10.66.177.74:/tmp/hcpdriver* /tmp
-ls -lrt /tmp
+/tmp
 scp -i .ssh/id_rsa -P 9402 /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko mteo@10.66.177.88:/tmp
 rm -rf /tmp/hcpdriver-cki-3.10.0-957.1.3.el7.x86_64.ko 
 ls -lrt
-ls -lrt /tmp
+/tmp
 rm -rf serverbackup*
 sudo -i
 history | grep scp
@@ -584,7 +540,7 @@ ls -lrt
 chage -l mteo
 exit
 sudo -i
-ls -lrt /etc/sudo*.conf
+/etc/sudo*.conf
 sudo -i
 exit
 chage -l root
@@ -597,10 +553,10 @@ sudo -i
 cat .bashrc
 set
 cat /home/mteo/playbooks/inventory
-ls -lrt *.cfg
+*.cfg
 ls -lrt
 cat .bashrc
-ls -lrt .ansible*
+.ansible*
 cd .ansible/
 ls
 cd ..
@@ -635,7 +591,7 @@ man -k sh
 id
 scp -i .ssh/id_rsa -p 9402 mteo@10.66.177.91:/tmp/id_rsa /tmp
 scp -i .ssh/id_rsa -P 9402 mteo@10.66.177.91:/tmp/id_rsa /tmp
-ls -lrt /tmp/
+/tmp/
 ssh -i /tmp/id_rsa -P 9402 fish_count@10.66.177.91 ip add
 ssh -i /tmp/id_rsa -p 9402 fish_count@10.66.177.91 ip add
 rm -rf /tmp/id_rsa 
@@ -688,7 +644,7 @@ clear
 exit
 chage -l mteo
 exit
-ls -lrt /etc/shadow
+/etc/shadow
 exit
 history | grep ansible
  ansible-playbook -bK -u mteo playbooks/pw_expiry.yml -i playbooks/inventory
@@ -720,23 +676,6 @@ exit
 ip a
 cd /tmp
 ls -lrt
-cat azure-db01-root-history.txt 
-man history
-cat azure-db01-root-history.txt 
-rm -rf azure-db01-root-history.txt
-ls -lrt
-sudo -i
-exit
-ip a
-cd /tmp
-ls -lrt
-ip a
-exit
-ip a
-cd /tmp
-ls -lrt
-mv 50-server.cnf db01-50-server.cnf
-ls -lrt
 mv 50-server.cnf uatdb01-50-server.cn
 mv 50-server.cnf uatdb01-50-server.cnf
 ls -lrt
@@ -744,37 +683,10 @@ mv uatdb01-50-server.cn uatdb01-50-server.cnf
 ls -lrt
 diff db01-50-server.cnf uatdb01-50-server.cnf 
 diff db01-50-server.cnf uatdb01-50-server.cnf  | less
-mv /tmp/install.txt .
-ls -lrt
-cat install.txt
-cat /tmp/uatweb01-apache2-mod-enabled.txt 
-ls -lrt
-cat install.txt 
-ip add
-ls -lrt /tmp
-tar tvf /tmp/SLcertificates.tar 
-ip add
-exit
-scp -P 9402 mteo@10.66.177.74:/tmp/keystore.jks .
-ls -lrt
 mkdir app01
 mv keystore.jks app01/
-ls 
-ls -lrt
-cd app01/
-ls
+ 
 cp keystore.jks /tmp
-ip a
-ls -lrt
-cd
-exit
-scp -P 9402 mteo@
-scp -P 9402 mteo@10.66.177.115:/tmp/SL*.tar .
-ls -lrt
-cd app01/
-ls
-ls -lrt
-exit
 scp -P 9402 mteo@10.66.177.74:/tmp/app01-certs.tar /tmp
 rm -rf mysql-connector-java-8.0.12.jar 
 cd .ssh
@@ -785,22 +697,16 @@ cat id_rsa.pub
 cd /tmp
 ls
 ls -lrt
-history | grep scp
+ 
 scp -P 9402 mteo@10.111.53.206:/tmp/jun19patching.tar.gz .
 scp -P 9402 mteo@10.111.53.206:/tmp/jun19patching.tar.gz .
 df
 df .
 sudo -i
-ls -lrt /tmp
-history | grep scp
+ 
+ 
 scp -P 9402 jun19patching.tar.gz mteo@10.66.177.91:/tmp
-history
+ 
 scp -P 9402 jun19patching.tar.gz mteo@10.66.177.125:/tmp
-
-tar tvf SL-http-conf.tar 
-cat ansible_hosts 
-rm -rf SL-http-conf.tar 
-ls -lrt
 whereis yumdownloader
-rm -rf yum-utils-1.1.31-46.el7_5.noarch.rpm 
 
