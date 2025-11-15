@@ -32,3 +32,160 @@ ansible-playbook test.yaml --ask-vault-password
 
 ansible-vault encrypt test.yaml ; test.yaml exist
 ansible-value decrypt test.yaml
+1. Is user ansible created. Check for the existence of ansible
+2. Check for userid and groupid of ansible
+3. /var/log files
+
+Ansible: Managing a Windows host using Ansible
+https://fabianlee.org/2017/06/05/ansible-managing-a-windows-host-using-ansible/
+https://computingforgeeks.com/how-to-install-python-3-python-2-7-on-rhel-8/
+https://computingforgeeks.com/how-to-install-and-configure-ansible-on-rhel-8-centos-8/
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
+https://www.reddit.com/r/ansible/
+https://opensource.com/article/19/4/ansible-procedures
+
+Installation on Ubuntu 
+https://fabianlee.org/2017/06/06/ansible-installing-ansible-on-ubuntu-16-04/
+
+Ubuntu 20.10 
+https://theautomationcode.com/installing-ansible-on-ubuntu-part-i/
+https://theautomationcode.com/ansible-server-installation-on-ubuntu-part-ii/
+https://theautomationcode.com/setting-up-windows-hosts-for-ansible-with-credssp-authentication-i/
+https://theautomationcode.com/setting-up-windows-hosts-for-ansible-with-credssp-authentication-ii/
+
+
+https://www.golinuxcloud.com/configure-ansible/USEFUL COMMANDS
+ansible-playbook <book.yaml> --syntax-check
+morning checklist
+
+1. login web01 as root and check the mail queue using mailq.
+-  if there are mails stuck in the queue, use the following command to empty the queue
+   postqueue -f
+-  df -h to check for disk space
+-  /data/log for files with suspicious entries
+-  postsuper -d <queue id> or postsuper -D # deletes all in mail queue
+
+2. mail from mail.psaglobalconnect.com especially backup emails from backup01
+   grep -i JavaMail.root@Backup01 /var/log/maillog
+
+3. check for ntp drift in chrony especially useful is "systemctl status -l chronyd" (without double quotes)
+-  cat /var/lib/chrony/drift
+-  chronyc sources
+   210 Number of sources = 4
+   MS Name/IP address         Stratum Poll Reach LastRx Last sample
+   ===============================================================================
+   ^+ 10.0.77.54                    3  10   377   789  +3868us[+3420us] +/-  154ms
+   ^* 128.199.87.57                 3   8   377   140   +406us[  +70us] +/-  122ms
+   ^+ gandhari.thirdeye.it          2   7   377   105  -5250us[-5250us] +/-  233ms
+   ^+ sin.wrtpoona.in               3   9   377   511  -1504us[-1953us] +/-  291ms
+
+Remarks 10.0.77.54 (servertime.service.softlayer.com)is the NTP of Softlayer
+
+-  chronyc -4 sources -v
+   210 Number of sources = 4
+
+  .-- Source mode  '^' = server, '=' = peer, '#' = local clock.
+ / .- Source state '*' = current synced, '+' = combined , '-' = not combined,
+| /   '?' = unreachable, 'x' = time may be in error, '~' = time too variable.
+||                                                 .- xxxx [ yyyy ] +/- zzzz
+||      Reachability register (octal) -.           |  xxxx = adjusted offset,
+||      Log2(Polling interval) --.      |          |  yyyy = measured offset,
+||                                \     |          |  zzzz = estimated error.
+||                                 |    |           \
+MS Name/IP address         Stratum Poll Reach LastRx Last sample
+===============================================================================
+^+ 10.0.77.54                    3  10   377    52  +2788us[+2788us] +/-  170ms
+^* 128.199.87.57                 3   8   377   173   +293us[ +127us] +/-  127ms
+^+ gandhari.thirdeye.it          2   7   377     9  -6564us[-6564us] +/-  238ms
+^+ sin.wrtpoona.in               3   9   377   290   -833us[ -892us] +/-  302ms
+
+MUST BE * OR + ON THE S COLUMN. IF OTHERS SYMBOL, INVESTIGATE THE PROBLEM.
+
+   # chronyc tracking
+   # chronyc sourcestats
+   # chronyc activity
+   # timedatectl
+
+Additional Information:
+-  http://chrony.tuxfamily.org/doc/3.1/chronyc.html
+-  http://thegeekdiary.com/centos-rhel-7-tips-on-troubleshooting-ntp-chrony-issues/
+-  https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sect-Understanding_chrony_and-its_configuration.html
+-  https://en.wikipedia.org/wiki/Orders_of_magnitude_(time)
+
+4. check logmanager http://10.66.177.120:8400/event/index3.do
+   Under Home, go to Devices tab and ensure the Log Collection Status are Success (for windows) or Listening for Logs  (for Linux)
+   On the Dashboard, for Important Events, check for  Locked Accounts, Failed SSH Login (UNIX) and Failed Login.
+   Check for error, warning, notice, information, debug, success, failure on.
+   check the log files on logmanager D:\ManagedEngine\EventLog Analyzer\logs\sysLogs.out for any errors.
+
+   check for mail hacker
+   check for suspicious mail sent out
+   check for glitz/contractors activities
+
+5. Check backup jobs if daily backup report does not show the ok status. http://10.111.53.206:8080/TaskHistory/
+
+6. db01
+   check the timestamp on /data/mysql-data/log/mysqld.log. If it shows today's date, check the contents of the file for mysql database corruption.
+   check for the time clock
+
+7. app01
+   Check for the httpd and tomcat daemon.
+   check for the time clock
+
+8. check pmp server https://10.66.177.89:7272/PassTrixMain.cc
+
+9. ERMISDB and ERMISAPP
+   in ermisapp01 check for old log  files c:\inetpub\logs\logfiles\W3SVC1 (need admin)
+   dir /od u_ex170915.log
+   The 170915 is 2017, 09 is Sep, 15 is the date of the file.
+   should the log files be kept in d: instead of c:?
+
+10. locked accounts or expired password
+
+wmic useraccount where name='username' set disabled=false
+
+wmic UserAccount where lockout=false # not locked out
+wmic UserAccount where lockout=true  # locked out
+wmic useraccount where lockout="true" get name,fullname
+
+11. SOPHOS anti virus update status and services
+    /opt/sophos-av/bin/savscan /        # AV scan
+    #systemctl status sav-protect;/opt/sophos-av/bin/savdstatus
+
+12. chage -l root
+ansible production  -bK -m raw -a "chage -l root " -u mteo
+ansible uat  -bK -m raw -a "chage -l mteo " -u mteo
+
+13. get the event log for logmanager, pmp01, ermisuat001, ermisapp01 and ermisdb01
+
+https://stackoverflow.com/questions/22591230/check-if-a-local-user-is-locked-out-although-he-is-logged-in-powershell
+https://stackoverflow.com/questions/9265877/best-way-to-encrypt-customer-information-in-my-companys-mysql-db
+https://mariadb.com/kb/en/library/data-at-rest-encryption/#specifying-what-tables-to-encrypt
+http://thinkdiff.net/mysql/encrypt-mysql-data-using-aes-techniques/
+https://community.webfaction.com/questions/5049/encrypting-mysql-data-at-rest-with-ezncrypt
+https://superuser.com/questions/384366/remove-a-certain-line-from-bash-history-file
+https://abdussamad.com/archives/169-Apache-optimization:-KeepAlive-On-or-Off.html
+https://apprenda.com/library/paas/iaas-paas-saas-explained-compared/
+
+14. To use another inventory
+#ansible web01  -bK -m raw -a "mailq"
+#ansible app01  -bK -m raw -a "systemctl status httpd.service"
+#ansible uatdb01 -i playbooks/inventory -b -K -m raw -a "/opt/sophos-av/bin/savdstatus" -u mteo
+#ansible uatapp01 -i playbooks/inventory -b -K -m raw -a "/opt/sophos-av/bin/savdstatus" -u mteo
+export ANSIBLE_INVENTORY=/home/mteo/playbooks/inventory
+
+15. podman
+
+16. pod
+
+17. Ansible
+Able to git push
+
+18.
+19.
+20.
+21. about 2.55 pm
+22. how about morning checklist?
+22. another round of test
+23. branching
+24. 
