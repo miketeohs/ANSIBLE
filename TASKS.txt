@@ -1,4 +1,0 @@
-1. Is user ansible created. Check for the existence of ansible
-2. Check for userid and groupid of ansible
-3. /var/log files
-

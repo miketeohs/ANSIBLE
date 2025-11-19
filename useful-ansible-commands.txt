@@ -1,2 +1,0 @@
-USEFUL COMMANDS
-ansible-playbook <book.yaml> --syntax-check
